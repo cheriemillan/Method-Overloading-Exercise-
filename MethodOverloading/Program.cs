@@ -2,42 +2,40 @@
 {
     public class Program
     {
-        public static int? Add(int num1, int num2)
+        public static int Add(int num1, int num2)
         {
             int result = num1 + num2;
-            Console.WriteLine($"{result} dollars");
-            return null;
+            return result;
         }
 
         public static double? Add(double num1, double num2)
         {
             double result = num1 + num2;
-            Console.WriteLine($"{result} dollars");
-            return null;
+            return result;
         }
 
         public static string Add(int num1, int num2, bool answer)
         {
-            int result = num1 + num2;
-            if (answer == true)
+            var result = num1 + num2;
+            if (answer == true && result > 1)
             {
-                Console.WriteLine($"{result} dollars");
-            } else if ( result == 1)
+                return $"{result} dollars";
+                
+            } else if (answer == true && result == 1)
             {
-                Console.WriteLine($"{result} dollar");
+                return $"{result} dollar";
             }
             else
             {
-                Console.WriteLine("Wrong amount");
+                return "Wrong amount or no money";
             }
-
-            return null;
         }
+
         static void Main(string[] args)
         {
-            Add(1,3);
-            Add(3.5, 1.4);
-            Add(3, 2, true);
-        }
+            Console.WriteLine(Add(1, 3) + " dollars");
+            Console.WriteLine(Add(3.5, 1.4) + " dollars");
+            Console.WriteLine(Add(3, 2, true));
+    }
     }
 }
